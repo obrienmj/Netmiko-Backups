@@ -3,7 +3,7 @@ Python script that utilizes netmiko to backup switches on a network.
 
 ***In order to run, you will need to do the following:
 
-1. Install Python 3.6.5 from https://www.python.org/downloads/
+1. Install the latest version of Python 3 from https://www.python.org/downloads/
     
     -Change installation folder to C:\Python3\
     
