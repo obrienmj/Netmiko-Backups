@@ -25,6 +25,8 @@ Python script that utilizes netmiko to backup switches on a network.
 
 	-Change the device password every place you see "P@ssw0rd" in the script, and keep any quotes.
 	
-	-Enter your TFTP Server where you see 'X.X.X.X', and keep the quotes.  for example:  '1.1.1.1'
+	-(Line 30)Enter your TFTP Server where you see 'X.X.X.X', and keep the quotes.  for example:  '1.1.1.1'
 	
-	-Edit email settings to your email account.
+	-(Line 68-69)Edit email settings to your email account.
+	
+	-(Line 33)Make sure the file path to the switches.txt file is correct.
