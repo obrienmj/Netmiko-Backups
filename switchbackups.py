@@ -7,7 +7,7 @@ def netmiko_exos(ip):
 	'device_type': 'extreme',
 	'ip': ip,
 	'username': 'admin',
-	'password': 'NOT2ez2guess',
+	'password': 'P@ssw0rd',
 	}
 	
 def netmiko_enterasys(ip):
@@ -15,7 +15,7 @@ def netmiko_enterasys(ip):
 	'device_type': 'enterasys',
 	'ip': ip,
 	'username': 'admin',
-	'password': 'NOT2ez2guess',
+	'password': 'P@ssw0rd',
 	}
 	
 def netmiko_hp(ip):
@@ -23,11 +23,11 @@ def netmiko_hp(ip):
 	'device_type': 'hp_procurve',
 	'ip': ip,
 	'username': 'manager',
-	'password': 'NOT2ez2guess',
+	'password': 'P@ssw0rd',
 	}	
 
 #Specify TFTP Server
-tftpServer = '10.20.4.20'
+tftpServer = 'X.X.X.X'
 
 #Open Text file with IP address per line
 addrFile = open(r'C:\Scripts\switches.txt','r')
@@ -50,10 +50,6 @@ for line in addrFile:
         HOST = netmiko_enterasys(ipADDR)
         saveConfig = 'show config outfile configs/current.cfg' + '\ny\n'
         CopyFile = 'copy configs/current.cfg tftp://' + tftpServer + '/' + ipADDR + '.cfg'
-    elif linelist[0] == 's3':
-        HOST = netmiko_enterasys(ipADDR)
-        saveConfig = 'show config outfile slot1/current.cfg' + '\ny\n'
-        CopyFile = 'copy slot1/current.cfg tftp://' + tftpServer + '/' + ipADDR + '.cfg'
     else:
         print("The device type is either not in the text file or incorrect.  See ReadMe.txt")
         break
@@ -69,6 +65,6 @@ addrFile.close()
 
 #Configure email
 gmail = smtplib.SMTP_SSL('smtp.gmail.com', 465)
-gmail.login('ltech@rockyhillps.com', 'NOT2ez2guess')
-gmail.sendmail('ltech@rockyhillps.com', 'netadmin@rockyhillps.com', 'Subject: Switch Backups Completed\n\nThe script to backup all switch configurations has been completed.\nPlease view the files on WSUS01 in C:\TFTP-Root')
+gmail.login('user@domain.com', 'P@ssw0rd')
+gmail.sendmail('sender@domain.com', 'receiver@domain.com', 'Subject: Switch Backups Completed\n\nThe script to backup all switch configurations has been completed.\nPlease view the files in the TFTP folder on your server.')
 gmail.quit()
